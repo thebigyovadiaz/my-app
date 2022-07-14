@@ -95,6 +95,7 @@ export default function Home() {
       );
       // call the numAddressesWhitelisted from the contract
       const _numberOfWhitelisted = await whitelistContract.numAddressesWhitelisted();
+      console.log('_numberOfWhitelisted', _numberOfWhitelisted);
       setNumberOfWhitelisted(_numberOfWhitelisted);
     } catch (err) {
       console.error(err);
@@ -115,12 +116,16 @@ export default function Home() {
         abi,
         signer
       );
+
+      console.log('whitelistContract', whitelistContract);
       // Get the address associated to the signer which is connected to  MetaMask
       const address = await signer.getAddress();
+      console.log('address', address);
       // call the whitelistedAddresses from the contract
       const _joinedWhitelist = await whitelistContract.whitelistedAddresses(
         address
       );
+      console.log('_joinedWhitelist', _joinedWhitelist);
       setJoinedWhitelist(_joinedWhitelist);
     } catch (err) {
       console.error(err);
@@ -148,6 +153,8 @@ export default function Home() {
     renderButton: Returns a button based on the state of the dapp
   */
   const renderButton = () => {
+    console.log('aqui');
+
     if (walletConnected) {
       if (joinedWhitelist) {
         return (
