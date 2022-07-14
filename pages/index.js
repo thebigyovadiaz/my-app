@@ -58,9 +58,6 @@ export default function Home() {
       const signer = await getProviderOrSigner(true);
       // Create a new instance of the Contract with a Signer, which allows
       // update methods
-      console.log('first', WHITELIST_CONTRACT_ADDRESS)
-      console.log('first', abi)
-      console.log('first', signer)
 
       const whitelistContract = new Contract(
         WHITELIST_CONTRACT_ADDRESS,
